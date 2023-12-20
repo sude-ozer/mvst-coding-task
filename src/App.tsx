@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ApolloProvider } from '@apollo/client';
+import { client } from './client';
 import './App.css';
+import { UserPage } from "./pages/UserPage";
+import { HomePage } from "./pages/HomePage";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 function App() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#fafafa',
+        light: '#f5f5f5',
+        dark: '#333'
+      }
+    }
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Routes>
+            <Route  index element={<HomePage />} />
+            <Route path="user/:username" element={<UserPage />} />
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }
 
