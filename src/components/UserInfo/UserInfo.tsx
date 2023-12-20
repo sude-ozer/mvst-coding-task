@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -8,9 +7,9 @@ import Button from '@mui/material/Button';
 
 type UserInfoProps = {
     username: string,
-    fullname: string,
+    fullname?: string,
     bio?: string,
-    email: string,
+    email?: string,
     profilePictureUrl?: string,
     followerCount?: number,
     followingCount?: number
@@ -32,32 +31,34 @@ export default function UserInfo({
             sx={{
                 alignItems: 'center',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                width: '50%'
             }}
+            mr={8}
+            mt={-1}
         >
             <img
                 alt={username}
                 src={pictureUrl}
-                style={{width: 150, height: 150}}
+                style={{width: 200, height: 200, borderRadius: 100, zIndex: 1}}
             />
-            <Typography variant='h3' gutterBottom>
+            <Typography variant='h4' gutterBottom color="text.primary">
                 {username}
             </Typography>
-            {fullname && <Typography variant='h4'>
+            {fullname && <Typography variant='h6' color="text.secondary" mb={1}>
                 {fullname}
             </Typography>}
-            {bio && <Typography> {bio} </Typography>}
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-                <PeopleAltIcon />
-                <Typography> {followerCount || 0} followers </Typography>
-                <Typography> {followingCount || 0} following </Typography>
-            </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+            {bio && <Typography color="text.primary" mb={0.5}> {bio} </Typography>}
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} mb={0.5}>
                 <Button variant='contained' color='primary'>Follow</Button>
-                <MoreHorizIcon />
+                <MoreHorizIcon color='disabled' sx={{ paddingLeft: '8px' }} />
             </Box>
-            {email && <Typography>
-                <MailOutlineIcon />
+            <Box sx={{ display: 'flex', flexDirection: 'row' }} mb={0.5}>
+                <PeopleAltIcon color='disabled' sx={{ paddingRight: '5px' }} />
+                <Typography color="text.secondary"> {followerCount || 0} followers ⏺ {followingCount || 0} following </Typography>
+            </Box>
+            {email && <Typography color="text.secondary">
+                <MailOutlineIcon color='disabled' />
                 {email} 
             </Typography>}
         </Box>
