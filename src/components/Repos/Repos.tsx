@@ -69,7 +69,7 @@ export default function Repos({
                                             variant="body2"
                                             color="text.secondary">
                                                 {repo.forks.totalCount === 0 ?
-                                                    "Forks: 0" : "Forks: {repo.forks.totalCount}"}
+                                                    "Forks: 0" : `Forks: ${repo.forks.totalCount}`}
                                         </Typography>
                                     </Box>
                                 </Box>

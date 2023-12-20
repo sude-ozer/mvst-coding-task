@@ -29,18 +29,9 @@ export default function UserPage() {
                     justifyContent: 'center'
                 }}
                 mx={6}
-                //mt={8}
             >
                 <Box sx={{ display: 'flex', flexDirection: 'row', flex: 1 }}>
-                    <UserInfo
-                        username={user_data.user.login}
-                        fullname={user_data.user.name}
-                        email={user_data.user.email}
-                        followerCount={user_data.user.followers.totalCount}
-                        followingCount={user_data.user.following.totalCount}
-                        bio={user_data.user.bio}
-                        profilePictureUrl={user_data.user.avatarUrl}
-                    />
+                    <UserInfo user={user_data} />
                     <Repos repositories={user_data.user.repositories.nodes}/>
                 </Box>
             </Box>

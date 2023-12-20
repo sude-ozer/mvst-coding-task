@@ -39,7 +39,7 @@ export default function Search({
             />
             <FormControl sx={{ width: '40%' }}>
                 <InputLabel>Language</InputLabel>
-                <Select label='Language' onChange={onLanguageChange} autoWidth >
+                <Select label='Language' onChange={onLanguageChange} >
                     {languages.map((language) => (
                         <MenuItem key={language} defaultValue='All' value={language}>
                             {language}

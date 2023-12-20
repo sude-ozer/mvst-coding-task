@@ -4,32 +4,23 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import Button from '@mui/material/Button';
+import { UserData } from '../../services/GithubAPIService';
 
 type UserInfoProps = {
-    username: string,
-    fullname?: string,
-    bio?: string,
-    email?: string,
-    profilePictureUrl?: string,
-    followerCount?: number,
-    followingCount?: number
+    user: UserData,
 }
 
 export default function UserInfo({
-    username,
-    fullname,
-    bio,
-    email,
-    profilePictureUrl,
-    followerCount,
-    followingCount,
+    user
 } : UserInfoProps) {
-    const pictureUrl: string = profilePictureUrl || 'http://www.gravatar.com/avatar/?d=identicon';
+    const user_profile = user.user;
+    const pictureUrl: string = user_profile.avatarUrl || 'http://www.gravatar.com/avatar/?d=identicon';
 
     return (
         <Box
             sx={{
                 alignItems: 'center',
+                justifyContent: 'center',
                 display: 'flex',
                 flexDirection: 'column',
                 width: '50%'
@@ -38,29 +29,33 @@ export default function UserInfo({
             mt={-1}
         >
             <img
-                alt={username}
+                alt={user_profile.login}
                 src={pictureUrl}
                 style={{width: 200, height: 200, borderRadius: 100, zIndex: 1}}
             />
             <Typography variant='h4' gutterBottom color="text.primary">
-                {username}
+                {user_profile.login}
             </Typography>
-            {fullname && <Typography variant='h6' color="text.secondary" mb={1}>
-                {fullname}
+            {user_profile.name && <Typography variant='h6' color="text.secondary" mb={1}>
+                {user_profile.name}
             </Typography>}
-            {bio && <Typography color="text.primary" mb={0.5}> {bio} </Typography>}
+            {user_profile.bio && <Typography color="text.primary" mb={0.5}> {user_profile.bio} </Typography>}
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} mb={0.5}>
                 <Button variant='contained' color='primary'>Follow</Button>
                 <MoreHorizIcon color='disabled' sx={{ paddingLeft: '8px' }} />
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'row' }} mb={0.5}>
                 <PeopleAltIcon color='disabled' sx={{ paddingRight: '5px' }} />
-                <Typography color="text.secondary"> {followerCount || 0} followers ⏺ {followingCount || 0} following </Typography>
+                <Typography color="text.secondary"> 
+                    {user_profile.followers.totalCount || 0} followers ⏺ {user_profile.following.totalCount || 0} following 
+                </Typography>
             </Box>
-            {email && <Typography color="text.secondary">
-                <MailOutlineIcon color='disabled' />
-                {email} 
-            </Typography>}
+            <Box sx={{ display: 'flex', flexDirection: 'row' }} mb={0.5}>
+                <MailOutlineIcon color='disabled' sx={{ paddingRight: '5px' }} />
+                <Typography color="text.secondary"> 
+                    {user_profile.email} 
+                </Typography>
+            </Box>
         </Box>
     )
 }
