@@ -32,7 +32,7 @@ export default function UserInfo({
                 width: '50%'
             }}
             mr={8}
-            mt={-1}
+            mt={-20}
         >
             <img
                 alt={user_profile.login}
