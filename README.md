@@ -8,7 +8,7 @@
 The project is deployed to Netlify.
 - Netlify is chosen since this is an only frontend project.
 
-[Deployed here](https://main--mvst-coding-challenge-sudeozer.netlify.app/user/sudeozer)
+[Deployed here](https://mvst-coding-challenge-sudeozer.netlify.app)
 
 ## Setup
 
