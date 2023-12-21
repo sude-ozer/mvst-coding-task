@@ -10,6 +10,22 @@ The project is deployed to Netlify.
 
 [Deployed here](https://main--mvst-coding-challenge-sudeozer.netlify.app/user/sudeozer)
 
+## Setup
+
+Before starting the project, local .env file should be updated since Github API is used in the project.
+
+Steps
+- In your Github, click profile photo on the upper-right corner and select Settings.
+- In the left-side bar, choose Developer Settings.
+- Again in the left-side bar, click Personal Access Token.
+- Generate a new token using the Generate New Token (classic) option
+- Select "read:user" permission only and generate the token.
+- The last step is saving the token in .env file, use REACT_APP_GITHUB_TOKEN as naming.
+
+```js
+REACT_APP_GITHUB_TOKEN = 'YOUR TOKEN GOES HERE'
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -35,4 +51,4 @@ Launches the storybook where UI components and pages can be examined.
 
 - UI can be improved with the help of ThemeProvider.
 - Pagination can be added to Github API requests.
-- Testing can be improved.
+- Testing can be improved to test pages and individual components.
