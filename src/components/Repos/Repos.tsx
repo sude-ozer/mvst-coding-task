@@ -19,7 +19,7 @@ export default function Repos({
 }: ReposProps) {
     const [searchKeyword, setSearchKeyword] = React.useState<string>('');
     const [selectedLanguage, setSelectedLanguage] = React.useState<string>('');
-    const [currentPage, setCurrentPage] = React.useState<number>(1);
+    // const [currentPage, setCurrentPage] = React.useState<number>(1);
     const [shownRepos, setShownRepos] = React.useState<RepoData[]>(repositories);
 
     const repoLanguages = getLanguages(repositories);
