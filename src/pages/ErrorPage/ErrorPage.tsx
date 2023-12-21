@@ -32,7 +32,7 @@ export default function ErrorPage() {
                     size="medium"
                     onClick={() => navigate('/')}
                 >
-                    <Typography>Try again</Typography>
+                    <Typography color="text.secondary">Try again</Typography>
                 </Button>
             </Box>
         </>

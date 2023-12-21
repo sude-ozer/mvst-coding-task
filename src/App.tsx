@@ -4,7 +4,6 @@ import { client } from './client';
 import { UserPage } from "./pages/UserPage";
 import { HomePage } from "./pages/HomePage";
 import { createTheme, ThemeProvider } from "@mui/material";
-import { Palette } from "@mui/icons-material";
 
 function App() {
   const theme = createTheme({

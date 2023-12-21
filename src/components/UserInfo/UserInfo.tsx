@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import Button from '@mui/material/Button';
 import { UserData } from '../../services/GithubAPIService';
@@ -32,7 +31,7 @@ export default function UserInfo({
                 width: '50%'
             }}
             mr={8}
-            mt={-20}
+            mt={-2}
         >
             <img
                 alt={user_profile.login}
