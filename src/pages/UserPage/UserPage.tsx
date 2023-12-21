@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { ErrorPage } from "../ErrorPage";
 import { UserInfo } from "../../components/UserInfo";
@@ -19,6 +19,21 @@ export default function UserPage() {
     const { data: user_data, loading, error } = useQuery<UserData>(GET_USER, {
         variables: { username: username.username }
     });
+
+    if(loading) {
+        return (
+            <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+                my={8}
+            >
+                <CircularProgress color="inherit" />
+            </Box>
+        )
+    }
 
     if(!user_data || error) {
         return (<ErrorPage />);
