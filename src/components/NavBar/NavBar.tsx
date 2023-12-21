@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container, Toolbar } from "@mui/material";
+import { AppBar, Box, Button, Container, Toolbar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 /**
@@ -18,13 +18,13 @@ export default function NavBar() {
                             onClick={() => navigate('/')}
                             sx={{ my: 2, color: 'black' }}
                         >
-                            Home
+                            <Typography color="text.secondary">HOME</Typography>
                         </Button>
                         <Button
                             onClick={() => navigate(0)}
                             sx={{ my: 2, color: 'black' }}
                         >
-                            Repositories
+                            <Typography color="text.secondary">REPOSITORIES</Typography>
                         </Button>
                     </Box>
                 </Toolbar>

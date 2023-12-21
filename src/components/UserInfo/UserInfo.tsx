@@ -47,11 +47,12 @@ export default function UserInfo({
             </Typography>}
             {user_profile.bio && <Typography color="text.primary" mb={0.5}> {user_profile.bio} </Typography>}
             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} mb={0.5}>
-                <Button variant='contained' color='primary'>Follow</Button>
-                <MoreHorizIcon color='disabled' sx={{ paddingLeft: '8px' }} />
+                <Button variant='contained' color='primary'>
+                    <Typography color="text.secondary">FOLLOW</Typography>
+                </Button>
             </Box>
             <Box sx={{ display: 'flex', flexDirection: 'row' }} mb={0.5}>
-                <PeopleAltIcon color='disabled' sx={{ paddingRight: '5px' }} />
+                <PeopleAltIcon sx={{ paddingRight: '5px', color: "text.secondary" }} />
                 <Typography color="text.secondary"> 
                     {user_profile.followers.totalCount || 0} followers ⏺ {user_profile.following.totalCount || 0} following 
                 </Typography>

@@ -48,7 +48,7 @@ export default function Repos({
                             <Divider />
                             <ListItem sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                                    <Link href={repo.url} underline='none' color="text.secondary"> {repo.name} </Link>
+                                    <Link href={repo.url} underline='none' color="primary.dark"> {repo.name} </Link>
                                     <Typography sx={{ display: 'inline' }}
                                         component="span"
                                         variant="body2"

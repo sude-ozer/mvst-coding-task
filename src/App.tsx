@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloProvider } from '@apollo/client';
 import { client } from './client';
-import './App.css';
 import { UserPage } from "./pages/UserPage";
 import { HomePage } from "./pages/HomePage";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { Palette } from "@mui/icons-material";
 
 function App() {
   const theme = createTheme({
@@ -12,8 +12,11 @@ function App() {
       primary: {
         main: '#fafafa',
         light: '#f5f5f5',
-        dark: '#333'
+        dark: '"#0288d1"'
       }
+    },
+    typography: {
+      fontSize: 16,
     }
   })
 
