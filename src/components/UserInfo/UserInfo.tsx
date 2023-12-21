@@ -56,12 +56,12 @@ export default function UserInfo({
                     {user_profile.followers.totalCount || 0} followers ⏺ {user_profile.following.totalCount || 0} following 
                 </Typography>
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'row' }} mb={0.5}>
+            {user_profile.email && <Box sx={{ display: 'flex', flexDirection: 'row' }} mb={0.5}>
                 <MailOutlineIcon color='disabled' sx={{ paddingRight: '5px' }} />
                 <Typography color="text.secondary"> 
                     {user_profile.email} 
                 </Typography>
-            </Box>
+            </Box>}
         </Box>
     )
 }
