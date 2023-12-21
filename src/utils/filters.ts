@@ -9,11 +9,12 @@ import { RepoData } from "../services/GithubAPIService";
  * @returns {RepoData[]} filtered repository list
  */
 export function filterRepositories(repos: RepoData[], keyword?: string, language?: string): RepoData[] {
+
     if(keyword && language) {
-        return repos.filter((repo) => repo.name.includes(keyword))
+        return repos.filter((repo) => repo.name.toLowerCase().includes(keyword.toLowerCase()))
                     .filter((repo) => repo.languages.nodes.some((lang) => lang.name === language));
     } else if(keyword) {
-        return repos.filter((repo) => repo.name.includes(keyword));
+        return repos.filter((repo) => repo.name.toLowerCase().includes(keyword.toLowerCase()));
     } else if(language) {
         return repos.filter((repo) => repo.languages.nodes.some((lang) => lang.name === language));
     }
@@ -29,12 +30,13 @@ export function filterRepositories(repos: RepoData[], keyword?: string, language
  */
 export function getLanguages(repos?: RepoData[]): string[] {
     const usedLanguages = new Array<string>();
-    usedLanguages.push('All');
 
     if(repos) {
         repos.forEach((repo) => repo.languages.nodes
                                     .forEach((node) => usedLanguages.push(node.name)))
     }
+
+    if(usedLanguages.length > 0) usedLanguages.push('All');
 
     return usedLanguages.filter(onlyUnique);
 }
