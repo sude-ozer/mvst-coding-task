@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 import { useQuery } from "@apollo/client";
+import { ErrorPage } from "../ErrorPage";
 import { UserInfo } from "../../components/UserInfo";
 import { Repos } from "../../components/Repos";
 import { NavBar } from "../../components/NavBar";
@@ -19,10 +20,8 @@ export default function UserPage() {
         variables: { username: username.username }
     });
 
-    console.log(user_data);
-
-    if(!user_data) {
-        return null
+    if(!user_data || error) {
+        return (<ErrorPage />);
     } 
 
     return (
