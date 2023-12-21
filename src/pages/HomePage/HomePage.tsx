@@ -49,6 +49,11 @@ export default function HomePage() {
                         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                             setUsername(event.target.value);
                         }}
+                        onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
+                            if(event.key === 'Enter') {
+                                navigate(`/user/${username}`)
+                            }
+                        }}
                         sx={{ width: '90%' }}
                     />
                     <Button
