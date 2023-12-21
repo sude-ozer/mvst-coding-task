@@ -10,6 +10,12 @@ type UserInfoProps = {
     user: UserData,
 }
 
+/**
+ * This component lists the user information retrieved for a specific user.
+ * 
+ * @param {UserData} user - User data retrieved from Github API 
+ * @returns {JSX.Element}
+ */
 export default function UserInfo({
     user
 } : UserInfoProps) {

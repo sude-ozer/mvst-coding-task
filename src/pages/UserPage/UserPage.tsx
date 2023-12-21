@@ -6,6 +6,12 @@ import { Repos } from "../../components/Repos";
 import { NavBar } from "../../components/NavBar";
 import { GET_USER, UserData } from "../../services/GithubAPIService";
 
+/**
+ * User Page shows the user profile information and user's repositories for the given username.
+ * It retrieves related information from Github API.
+ * 
+ * @returns {JSX.Element}
+ */
 export default function UserPage() {
     const username = useParams();
  

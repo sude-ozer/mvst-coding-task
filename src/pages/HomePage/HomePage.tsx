@@ -3,6 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button, TextField, Typography } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 
+/**
+ * Home Page is the landing page of the application.
+ * Waits for a username input from the user.
+ * 
+ * @returns {JSX.Element}
+ */
 export default function HomePage() {
     const [username, setUsername] = React.useState<string>('');
     const navigate = useNavigate();

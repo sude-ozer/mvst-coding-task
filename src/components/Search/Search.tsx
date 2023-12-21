@@ -13,6 +13,15 @@ type SearchProps = {
     updateSelectedLanguage: (newLanguage: string) => void,
 };
 
+/**
+ * Search component contains search input area and language dropdown menu to let user choose search queries
+ * 
+ * @param {string[]} languages - All languages used in all user repositories
+ * @param {string} searchKeyword - Keyword written by the user in search input
+ * @param updateSearchKeyword - Update the searchKeyword according to the new input
+ * @param updateSelectedLanguage - Update the selected language according to the chosen value from dropdown menu
+ * @returns {JSX.Element}
+ */
 export default function Search({
     languages,
     searchKeyword,
@@ -20,10 +29,20 @@ export default function Search({
     updateSelectedLanguage
 }: SearchProps) {
 
+    /**
+     * Updates the search keyword
+     * 
+     * @param {React.ChangeEvent<HTMLInputElement>} e - Search keyword input change event
+     */
     const onKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         updateSearchKeyword(e.target.value);
     }
 
+    /**
+     * Updates the language according to the chosen value
+     * 
+     * @param {SelectChangeEvent} e - Language change event
+     */
     const onLanguageChange = (e: SelectChangeEvent) => {
         updateSelectedLanguage(e.target.value);
     }

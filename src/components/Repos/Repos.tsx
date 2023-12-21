@@ -1,14 +1,19 @@
-import { Box, Button, Divider, Link, List, ListItem, Typography } from '@mui/material';
+import { Box, Divider, Link, List, ListItem, Typography } from '@mui/material';
 import * as React from 'react';
 import { RepoData } from '../../services/GithubAPIService';
 import { Search } from '../Search';
 import { getLanguages, filterRepositories } from "../../utils/filters";
-import { StarOutline } from '@mui/icons-material';
 
 type ReposProps = {
     repositories: RepoData[],
 };
 
+/**
+ * Repos component gets user's repositories and lists them, also contains a Search component to search in repositories
+ * 
+ * @param {RepoData[]} repositories - A specific user's repositories are given as a prop to list in the component
+ * @returns {JSX.Element} 
+ */
 export default function Repos({
     repositories
 }: ReposProps) {
