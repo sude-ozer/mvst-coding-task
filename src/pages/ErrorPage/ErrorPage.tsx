@@ -2,6 +2,11 @@ import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import githubError from "../../assets/github_error.svg";
 
+/**
+ * If any error occurs this page is shown to the user.
+ * 
+ * @returns {JSX.Element}
+ */
 export default function ErrorPage() {
     const navigate = useNavigate();
 
